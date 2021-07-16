@@ -4,7 +4,6 @@ import CurrencyExchangeContainer from '../../containers/CurrencyExchangeContaine
 // Redux
 // https://tproger.ru/translations/redux-for-beginners/
 // https://monsterlessons.com/project/series/redux-js-dlya-nachinayushih
-// https://xsltdev.ru/react/redux/intro/
 // Typescript generic
 // https://habr.com/ru/post/455473/
 // https://habr.com/ru/company/ruvds/blog/426729/
@@ -15,9 +14,7 @@ import CurrencyExchangeContainer from '../../containers/CurrencyExchangeContaine
 
 const Lesson1: React.FunctionComponent = () => {
     return (
-    <React.Fragment>
         <CurrencyExchangeContainer />
-    </React.Fragment>
   );
 };
 
