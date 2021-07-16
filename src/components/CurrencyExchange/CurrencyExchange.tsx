@@ -12,46 +12,44 @@ type CurrencyExchangePropsType = {
     changeCurrentCurrency: (e: React.MouseEvent<HTMLLIElement>) => void;
 };
 
-const CurrencyExchange: React.FC<CurrencyExchangePropsType> = ({
-                                                                                  currenciesName,
-                                                                                  currentCurrency,
-                                                                                  currencyRate,
-                                                                                  isBuying,
-                                                                                  amountOfBYN,
-                                                                                  amountOfCurrency,
-                                                                                  changeCurrencyField,
-                                                                                  changeAction,
-                                                                                  changeCurrentCurrency,
-                                                                              }) => {
-    const viewCurrency = isBuying ? (
-        <React.Fragment>
+const CurrencyExchange: React.FC<CurrencyExchangePropsType> = props => {
+
+    const {
+        currenciesName, currentCurrency, currencyRate, isBuying, amountOfBYN,
+        amountOfCurrency, changeCurrencyField, changeAction, changeCurrentCurrency,
+    } = props;
+
+
+    const viewCurrency = isBuying
+
+        ? (<React.Fragment>
             <label>
-                You give the next amount of BYN:
-                <input value={amountOfBYN} data-currency="byn" onChange={changeCurrencyField} />
+                Ваша сумма в BYN:
+                <input value={amountOfBYN} data-currency="byn" onChange={changeCurrencyField}/>
             </label>
             <label>
-                You get the next amount of {currentCurrency}:
-                <input value={amountOfCurrency} data-currency="currency" onChange={changeCurrencyField} />
+                Полученная сумма в {currentCurrency}:
+                <input value={amountOfCurrency} data-currency="currency" onChange={changeCurrencyField}/>
             </label>
-        </React.Fragment>
-    ) : (
-        <React.Fragment>
+        </React.Fragment>)
+
+        : (<React.Fragment>
             <label>
-                You give the next amount of {currentCurrency}:
-                <input value={amountOfCurrency} data-currency="currency" onChange={changeCurrencyField} />
+                Ваша сумма в {currentCurrency}:
+                <input value={amountOfCurrency} data-currency="currency" onChange={changeCurrencyField}/>
             </label>
             <label>
-                You get the next amount of BYN:
-                <input value={amountOfBYN} data-currency="byn" onChange={changeCurrencyField} />
+                Полученная сумма в BYN:
+                <input value={amountOfBYN} data-currency="byn" onChange={changeCurrencyField}/>
             </label>
-        </React.Fragment>
-    );
+        </React.Fragment>);
 
     return (
         <div className="currency">
-            <h2>Currency exchange</h2>
+            <h2>Валютный калькулятор</h2>
+
             <div className="currency-names">
-                <p>Current currency:</p>
+                <p>текущая валюта:</p>
                 <ul>
                     {currenciesName.map((currency: string, index: number) => {
                         return (
@@ -67,18 +65,21 @@ const CurrencyExchange: React.FC<CurrencyExchangePropsType> = ({
                     })}
                 </ul>
             </div>
+
             <div className="currency-action">
-        <span className={isBuying ? 'active' : ''} data-action="buy" onClick={changeAction}>
-          Buy
-        </span>
+                <span className={isBuying ? 'active' : ''} data-action="buy" onClick={changeAction}>
+                    Buy
+                </span>
                 <span className={isBuying ? '' : 'active'} data-action="sell" onClick={changeAction}>
-          Sell
-        </span>
+                    Sell
+                </span>
             </div>
+
             <div className="fields">
-                <p>Currency rate: {currencyRate}</p>
+                <p>Валютный коэфициент: {currencyRate}</p>
                 {viewCurrency}
             </div>
+
         </div>
     );
 };
