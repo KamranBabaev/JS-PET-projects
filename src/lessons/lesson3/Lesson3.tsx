@@ -4,9 +4,9 @@ import './lesson_3';
 
 const Lesson3 = () => {
     const [searchName, setSearchName] = useState('');
-    const [serachResult, setSerachResult] = useState('');
+    const [serachResult, setSearchResult] = useState('');
     const [searchNameByType, setSearchNameByType] = useState('');
-    const [serachResultByType, setSerachResultByType] = useState('');
+    const [serachResultByType, setSearchResultByType] = useState('');
 
     const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
