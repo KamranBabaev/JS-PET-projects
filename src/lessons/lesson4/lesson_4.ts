@@ -82,20 +82,19 @@ console.log('lesson 4');
 // и выведите в консоль {name, age, city}
 
 const prom1 = new Promise((res, rej) => {
-    setTimeout(() => res({name: "Anna"}), 2000)
+  setTimeout(() => res({name: "Anna"}), 2000)
 })
     // @ts-ignore
     .then(result => result.name)
 
-
 const prom2 = new Promise((res, rej) => {
-    setTimeout(() => res({age: 16}), 3000)
+  setTimeout(() => res({age: 16}), 3000)
 })
     // @ts-ignore
     .then(result => result.age)
 
 const prom3 = new Promise((res, rej) => {
-    setTimeout(() => res({city: 'Saint-Petersburg'}), 4000)
+  setTimeout(() => res({city: 'Saint-Petersburg'}), 4000)
 })
     // @ts-ignore
     .then(result => result.city)
